@@ -11,6 +11,9 @@ var myMap = L.map("map", {
     accessToken: API_KEY
   }).addTo(myMap);
 
+
+  
+
   // Store API query variables
   var chartURL = "/data";
  

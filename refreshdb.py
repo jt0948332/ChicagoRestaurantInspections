@@ -58,4 +58,4 @@ def refresh():
 #####SHOW ME THE MONEY#####
     pd.read_sql_query("SELECT * FROM RestaurantData",con=engine).head()
 
-refresh()
+#refresh()
