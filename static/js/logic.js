@@ -32,11 +32,15 @@ var myMap = L.map("map", {
 
     // Check for location property
     if (location) {
-
-      // Add a new marker to the cluster group and bind a pop-up
+      if (response[i].Year ==2018){
+        // Add a new marker to the cluster group and bind a pop-up
       markers.addLayer(L.marker([response[i].Lng, response[i].Lat])
       .bindPopup(response[i].DBA  + response[i].success + response[i].Inspection + response[i].Year))
     
+
+      }
+
+      
     }
     console.log(response[i].Lat, response[1].Lng)
   }
