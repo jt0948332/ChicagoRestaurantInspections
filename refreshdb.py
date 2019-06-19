@@ -26,6 +26,11 @@ def refresh():
     df.rename(columns={8:'Name',9:'DBA',10:'identifier', 11:'Type',12:'Risk', 13:'Street',14:'City', 15:'State', 16:'Zip', 17:'Date',18:'Inspection',19:'Success',20:'Description', 21:'lat', 22:'lng'}, inplace=True)
     df['Date'] = pd.to_datetime(df['Date']).apply(lambda x:x.strftime('%m/%d/%Y'))
     df['Year'] = pd.to_datetime(df['Date']).apply(lambda x:x.strftime('%Y'))
+    df = df[df.Year != '2011']
+    df = df[df.Year != '2012']
+    df = df[df.Year != '2013']
+    df = df[df.Year != '2014']
+    df = df[df.Year != '2015']
 
     
     df.head(5)
@@ -53,4 +58,4 @@ def refresh():
 #####SHOW ME THE MONEY#####
     pd.read_sql_query("SELECT * FROM RestaurantData",con=engine).head()
 
-#refresh()
+refresh()
