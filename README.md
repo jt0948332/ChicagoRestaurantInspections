@@ -14,6 +14,11 @@ Wishlist and trouble points:
 
 - Layer control for various years: We had data from year 2011 to 2019. We have filtered out 2018 to show the beahvaiour. However, we would have loved to include 2016 - 2019 data with control layers on leaflet to toggle on or off. That will give a good idea of the situation flow.
 
+- Deploying on Heroku: Still struggling with this!
+
+- Walkscore save on cache to overcome limit of free API code
+
+
 
 Few reference links for "theory" part:
 1) https://chicago.github.io/food-inspections-evaluation/
