@@ -18,9 +18,11 @@ Wishlist and trouble points:
 
 - Walkscore save on cache to overcome limit of free API code
 
+- Auto update of data without running refreshdb manually
 
 
 Few reference links for "theory" part:
 1) https://chicago.github.io/food-inspections-evaluation/
-2) 
+2) https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5/data
+
 
