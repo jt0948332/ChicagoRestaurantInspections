@@ -81,3 +81,6 @@ var myMap = L.map("map", {
   myMap.addLayer(markers);
 
 });
+$(document).ready(function() {
+  $('.image-link').magnificPopup({type:'image'});
+});

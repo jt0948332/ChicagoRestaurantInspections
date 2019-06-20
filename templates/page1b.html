@@ -59,11 +59,11 @@
 </head>
 
 <body>
-  <h2>Passing Scores by Day and Year, Part 2</h2>
-    <p> Much better: we've eliminated the bad data and now are showing
+  <h1>Passing Scores by Day and Year, Part 2</h1>
+    <h2> Much better: we've eliminated the bad data and now are showing
       the percentage of sites passing inspection on a particular day of the week
       from 2011 to 2019. Wednesdays and Fridays have pass rates over 70 percent.
-    </p>
+    </h2>
   <div id="vis"></div>
 <script type="text/javascript">
 
@@ -101,7 +101,7 @@ var tip = d3.tip()
   })
 
 // csv loaded asynchronously
-d3.tsv("data2.tsv", type, function(data) {
+d3.tsv("{{ url_for('static', filename = 'data/data2.tsv') }}", type, function(data) {
 
   // Data is nested by country
   var countries = d3.nest()

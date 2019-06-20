@@ -59,9 +59,9 @@
 </head>
 
 <body>
-  <h2>Passing Scores by Day and Year, Part 1</h2>
-<p> Here we see the percentage of passing scores by day and by year, 
-  but something doesn't look quite right.</p>
+  <h1>Passing Scores by Day and Year, Part 1</h1>
+<h2> Here we see the percentage of passing scores by day and by year, 
+  but something doesn't look quite right.</h2>
   <div id="vis"></div>
 <script type="text/javascript">
 
@@ -99,7 +99,7 @@ var tip = d3.tip()
   })
 
 // csv loaded asynchronously
-d3.tsv("data.tsv", type, function(data) {
+d3.tsv("{{ url_for('static', filename = 'data/data.tsv') }}", type, function(data) {
 
   // Data is nested by country
   var countries = d3.nest()
