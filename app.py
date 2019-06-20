@@ -9,6 +9,7 @@ from sqlalchemy import create_engine
 from sqlalchemy import func
 
 from flask import Flask, jsonify, render_template
+from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 import refreshdb
 
@@ -30,15 +31,44 @@ Base.prepare(db.engine, reflect=True)
 # Save references to each table
 Restaurants = Base.classes.RestaurantData
 
+def create_app():
+  app = Flask(__name__)
+  Bootstrap(app)
+
+  return app
 
 @app.route("/")
 def index():
-    """Return the homepage."""
-    return render_template("index.html")
+    
+    title = "Eat Well!"
+    paragraph = ["Chicago, with it's many restaurants and turnover is a food hub. Do they serve good food? Check yelp reviews. Do they serve clean food? Check us!"]
+# try:
+    return render_template("index.html", title = title, paragraph=paragraph)
+# except Exception, e:
+#         return str(e)
+
+@app.route("/plotA")
+def plota():
+    
+    title = "Eat Well!"
+    paragraph = ["Chicago, with it's many restaurants and turnover is a food hub. Do they serve good food? Check yelp reviews. Do they serve clean food? Check us!"]
+# try:
+    return render_template("page1a.html", title = title, paragraph=paragraph)
+
+@app.route("/plotB")
+def plotb():
+
+    title = "Eat Well!"
+    paragraph = ["Chicago, with it's many restaurants and turnover is a food hub. Do they serve good food? Check yelp reviews. Do they serve clean food? Check us!"]
+# try:
+    return render_template("page1b.html", title = title, paragraph=paragraph)
+
 
 ######################################################################
 #############         SHOW ME ALL OF THE COLUMNS I CAN GET  ##########
 ######################################################################
+
+
 @app.route("/AvailableColumns")
 def names():
     """Return a list of sample names."""

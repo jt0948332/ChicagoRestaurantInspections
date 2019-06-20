@@ -2,9 +2,16 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Marker Clusters</title>
+    <title>Eat Well</title>
+    <!-- Link for bootstrap CSS -->
+    <link rel="stylesheet" media="screen" href = "{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+    <!-- Link for bootstrap CDN -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    
+    <!-- Link for the loader CSS and JS -->
     <script src="{{ url_for('static', filename = 'js/pace.js') }}"></script>
-
     <link rel="stylesheet" type="text/css" href="static/css/pace-theme-center-atom.css">
 
     <!-- Leaflet JS & CSS -->
@@ -18,8 +25,6 @@
     <!-- d3 JS -->
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
-
-
     <!-- Marker Cluster JS & CSS -->
     <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
@@ -29,12 +34,115 @@
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
 
   </head>
-  <body>
+  <body class = "body">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">Eat Well</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Story</a>
+              </li> -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Summary Stats
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="page1a.html">Plot A</a>
+                  <a class="dropdown-item" href="page1b.html">Plot B</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Summary Area</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Story</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
 
-    <div id="map"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Chicago city map: Plot represents restaurants' inspections</h3>
+            <p>"Chicago, with it's many restaurants and turnover is a food hub. Do they serve good food? Check yelp reviews. Do they serve clean food? Check us!</p>
+          <div id="map">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+      <h2>Let's look at some stats of this data</h2>
+    </div>
+   <div class="row">
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">When are they getting inspected?</h5>
+            <h6 class="card-subtitle mb-2 text-muted">How does that impact?</h6>
+            <p class="card-text">Is there any relation between the inspection day/date with the results? We hypothesized, no. Let's take a look.</p>
+            <a href="page1a.html" class="card-link">Cool plot</a>
+            <a href="page1b.html" class="card-link">Cooler plot!</a>
+            </div>
+          </div>
+        </div>
+      <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+          <img src="{{ url_for('static', filename = 'images/fail.PNG') }}" class="card-img-top" alt="Fail status 2015-16">
+          <div class="card-body">
+            <p class="card-text">This image shows the status of restaurants in 2015-16 for the chicago area.</p>
+          </div> <!-- card-body end -->
+        </div> <!-- card end -->
+      </div><!-- col md 4 end -->
+      <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+              <img src="{{ url_for('static', filename = 'images/numberYear.png') }}" class="card-img-top" alt="Fail status 2015-16">
+              <div class="card-body">
+                <p class="card-text">The overall number of restaurants being inspected has decreased drastically over the years. Why?</p>
+              </div> <!-- card-body end -->
+            </div> <!-- card end -->
+          </div><!-- col md 4 end -->
+    </div> <!-- row end -->
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card" style="width: 30rem;">
+                <img src="{{ url_for('static', filename = 'images/risk.PNG') }}" class="card-img-top" alt="Fail status 2015-16">
+                <div class="card-body">
+                  <p class="card-text">Context needed!</p>
+                  <p>Year 2016: 8980</p>
+                  <p>Year 2017: 8708</p>
+                  <p>Year 2018: 7417</p>
+                  <p>Year 2019: 4070</p>
+                </div> <!-- card-body end -->
+              </div> <!-- card end -->
+          </div>
+        <div class="col-md-6">
+        <div class="card" style="width: 30rem;">
+            <img src="{{ url_for('static', filename = 'images/riskPercent.PNG') }}" class="card-img-top" alt="Fail status 2015-16">
+            <div class="card-body">
+              <p class="card-text">This image shows the status of restaurants in 2015-16 for the chicago area.</p>
+            </div> <!-- card-body end -->
+          </div> <!-- card end -->
+        </div><!-- col md 4 end -->
+        
+      </div> <!-- row end -->
+
+    </div><!-- container end -->
+    
+
+
     <script src="{{ url_for('static', filename = 'js/config.js') }}"></script>
     <script src="{{ url_for('static', filename = 'js/logic.js') }}"></script>
+    
+   
 
   </body>
 </html>
-
